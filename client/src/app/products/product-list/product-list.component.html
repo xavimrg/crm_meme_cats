@@ -1,0 +1,21 @@
+<p>product-list works!</p>
+{{ 'PRODUCTS' | translate }} 
+<mat-card>
+<ul>
+    @if (productsService.products().length>0){
+        @for ( product of productsService.products(); track product.id){
+            <li>
+                <mat-card>
+
+            <img mat-card-image [src]="product.imageUrl">
+            <mat-card-title>{{product.name}}</mat-card-title>
+            <mat-card-subtitle>{{ 'CATEGORIES' | translate }} {{product.categories}}</mat-card-subtitle>
+            <mat-card-content>{{ 'DESCRIPTION' | translate }} {{product.description}}</mat-card-content>
+            <mat-card-subtitle>{{ 'PRICE' | translate }} {{product.price}} €</mat-card-subtitle>
+                </mat-card>
+            </li>
+        }
+    }
+</ul>
+
+</mat-card>

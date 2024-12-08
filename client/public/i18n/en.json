@@ -1,5 +1,10 @@
 {
 
-"hello" : "Hello"
+    "PRODUCTS": "Products",
+    "CATEGORIES": "Categories",
+    "DESCRIPTION": "Description",
+    "PRICE": "Price"
+
+
 
 }
