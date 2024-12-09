@@ -19,8 +19,8 @@ products = signal<Product[]>([]);
 // funcion para traer a los productos
 
 getAllProducts(){
-  return this.hhtp.get<Product[]>(this.Url). // al servicio http funcion get valor [] de products a traves de la URL
-  subscribe(products=>this.products.set(products)) // me suscribo al signal procuts que le digo que es un set de products
+  return this.hhtp.get<Product[]>(this.Url) // al servicio http funcion get valor [] de products a traves de la URL
+   .subscribe(products=>this.products.set(products)) // me suscribo al signal products LO PASO AL REFRESH
 }
 
 addProduct(product: Product){ // le pasamos a la funcion un product con la estructura del Interfaz Product
@@ -39,6 +39,11 @@ return this.hhtp.put<Product>(`${this.Url}/${id}`, product) // usamos metodo put
 deleteProduct(id: number): Observable<void>{ // localiazmos con el ID pasado y despues utilizamos el observable vacio
   return this.hhtp.delete<void>(`${this.Url}/${id}`)  // metodo delete de http
 }
+
+refreshProducts(){
+  this.getAllProducts()
+  
+} 
 
 }
 

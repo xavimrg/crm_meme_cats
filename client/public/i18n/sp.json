@@ -2,5 +2,7 @@
     "PRODUCTS": "Productos",
     "CATEGORIES": "Categorías",
     "DESCRIPTION": "Descripción",
-    "PRICE": "Precio"
+    "PRICE": "Precio",
+    "Loading products..." : "Cargando productos",
+    "No products available": "Productos no disponibles"
   }

@@ -1,25 +1,31 @@
-import { Component, inject } from '@angular/core';
-import { ProductsService } from '../../shared/services/products.service';
-import {MatButton, MatButtonModule} from '@angular/material/button';
-import { MatCardHeader, MatCardModule} from '@angular/material/card';
+import { Component, inject, Input, OnInit } from '@angular/core';
+import { MatCardModule} from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
+import { Product } from '../../shared/interfaces/product';
+import { RouterLink } from '@angular/router';
+import { ProductsService } from '../../shared/services/products.service';
 
 @Component({
   selector: 'app-product-list',
-  imports: [MatCardModule, TranslateModule],
+  imports: [MatCardModule, TranslateModule, RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
 
-  productsService = inject(ProductsService)
+@Input() products!: Product[] 
+// recibe del padre los products que es un [] de Product i
 
+productService = inject(ProductsService);
 
-  constructor(){
-    this.productsService.getAllProducts()
-  }
+ngOnInit(){}
+//   this.loadProducts
+// }
 
-  }
+// loadProducts(){
+//   this.productService.getAllProducts().subscribe(products => { this.products = products;});
 
+//   }
+}
   
 

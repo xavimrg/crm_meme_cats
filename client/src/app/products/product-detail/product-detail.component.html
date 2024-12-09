@@ -1,1 +1,38 @@
 <p>product-detail works!</p>
+
+<mat-card>
+
+      <img mat-card-image [src]="product.imageUrl" />
+      <mat-card-title>{{ product.name }}</mat-card-title>
+      <mat-card-content>
+        <p><strong>{{ 'CATEGORIES'  }}:</strong> {{ product.categories }}</p>
+        <p><strong>{{ 'DESCRIPTION' }}:</strong> {{ product.description }}</p>
+        <p><strong>{{ 'PRICE'  }}:</strong> {{ product.price }} €</p>
+        <p><strong>{{ 'STOCK' }}:</strong> {{ product.stock }}</p>
+        <button mat-raised-button color="primary" (click)="editMode = true">{{ 'Edit' }}</button>
+   <button mat-raised-button color="warn" (click)="deteleProduct()">{{ 'Delete' }}</button> 
+        <button mat-raised-button color="accent" (click)="goBack()">{{ 'Back'  }}</button>
+      </mat-card-content>
+    
+  </mat-card> 
+<!--   
+  <mat-card>
+    @if (editMode) {
+      <h2>{{ 'Edit Product' | translate }}</h2>
+      <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+        <mat-form-field>
+          <mat-label>{{ 'Name' | translate }}</mat-label>
+          <input matInput formControlName="name" required />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ 'Price' | translate }}</mat-label>
+          <input matInput type="number" formControlName="price" required />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ 'Categories' | translate }}</mat-label>
+          <input matInput formControlName="categories" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ 'Description' | translate }}</mat-label>
+          <textarea matInput formControlNa -->
+  

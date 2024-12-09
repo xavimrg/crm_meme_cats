@@ -3,8 +3,8 @@
     "PRODUCTS": "Products",
     "CATEGORIES": "Categories",
     "DESCRIPTION": "Description",
-    "PRICE": "Price"
-
-
+    "PRICE": "Price",
+    "Loading products..." : "Loading products",
+    "No products available": "No products available"
 
 }

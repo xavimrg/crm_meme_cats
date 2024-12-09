@@ -1,21 +1,30 @@
 <p>product-list works!</p>
-{{ 'PRODUCTS' | translate }} 
+{{ 'PRODUCTS' | translate }}
 <mat-card>
-<ul>
-    @if (productsService.products().length>0){
-        @for ( product of productsService.products(); track product.id){
-            <li>
-                <mat-card>
+    <ul>
+        @if ( products.length > 0){
+        @for ( product of products; track product.id){
+        <li>
+            <mat-card> <a [routerLink]="['/product', product.id]">
 
-            <img mat-card-image [src]="product.imageUrl">
-            <mat-card-title>{{product.name}}</mat-card-title>
-            <mat-card-subtitle>{{ 'CATEGORIES' | translate }} {{product.categories}}</mat-card-subtitle>
-            <mat-card-content>{{ 'DESCRIPTION' | translate }} {{product.description}}</mat-card-content>
-            <mat-card-subtitle>{{ 'PRICE' | translate }} {{product.price}} €</mat-card-subtitle>
-                </mat-card>
-            </li>
+
+                    <img mat-card-image [src]="product.imageUrl">
+                    <mat-card-title>{{product.name}}</mat-card-title>
+                    <mat-card-subtitle>{{ 'CATEGORIES' | translate }} : {{product.categories}}</mat-card-subtitle>
+                    <mat-card-content>{{ 'DESCRIPTION' | translate }} : {{product.description}}</mat-card-content>
+                    <mat-card-subtitle>{{ 'PRICE' | translate }} : {{product.price}} € </mat-card-subtitle>
+                    <mat-card>{{ 'STOCK' | translate }} : {{product.stock}}</mat-card>
+
+                </a>
+
+            </mat-card>
+        </li>
+         } @empty {
+        <li>{{ 'No products available' | translate }}</li>
         }
-    }
-</ul>
+        }@else { <p> {{'Loading products...' | translate }} </p>}
+ 
 
-</mat-card>
+    </ul>
+
+</mat-card> 
