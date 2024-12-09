@@ -27,7 +27,11 @@ constructor(){
    this.productsService.getAllProducts()
  }
 
- newProduct: Product = {
+
+// PARTE DEL FORMULARIO
+
+
+newProduct: Product = {
 name:'', 
 imageUrl:'',
 price:0,
@@ -45,6 +49,4 @@ ngOnInit(): void {
 onSubmit(product: Product){
   this.productsService.addProduct(product)
 }
-
-
 }

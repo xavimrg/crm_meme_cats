@@ -11,22 +11,14 @@ import { ProductsService } from '../../shared/services/products.service';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent  {
 
   @Input() products: Product[] = [];
-
+  product: Product | null = null;
 // recibe del padre los products que es un [] de Product i
 
 productService = inject(ProductsService);
 
-ngOnInit(){}
-//   this.loadProducts
-// }
-
-// loadProducts(){
-//   this.productService.getAllProducts().subscribe(products => { this.products = products;});
-
-//   }
 }
   
 
