@@ -4,6 +4,7 @@ import { ProductsService } from '../../shared/services/products.service';
 import { ProductFormComponent } from "../product-form/product-form.component";
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from '../../shared/interfaces/product';
+import { computed } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -15,8 +16,12 @@ export class ProductComponent implements OnInit {
 fb = inject(FormBuilder)
 productForm!: FormGroup;
 
+
+productList = computed(()=>   this.products())
+
 productsService = inject(ProductsService)
 products = this.productsService.products
+
 
 constructor(){
    this.productsService.getAllProducts()
@@ -40,5 +45,6 @@ ngOnInit(): void {
 onSubmit(product: Product){
   this.productsService.addProduct(product)
 }
+
 
 }

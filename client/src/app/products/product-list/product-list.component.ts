@@ -13,7 +13,8 @@ import { ProductsService } from '../../shared/services/products.service';
 })
 export class ProductListComponent implements OnInit {
 
-@Input() products!: Product[] 
+  @Input() products: Product[] = [];
+
 // recibe del padre los products que es un [] de Product i
 
 productService = inject(ProductsService);
