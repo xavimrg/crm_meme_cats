@@ -40,10 +40,6 @@ deleteProduct(id: number): Observable<void>{ // localiazmos con el ID pasado y d
   return this.hhtp.delete<void>(`${this.Url}/${id}`)  // metodo delete de http
 }
 
-refreshProducts(){
-  this.getAllProducts()
-  
-} 
 
 }
 

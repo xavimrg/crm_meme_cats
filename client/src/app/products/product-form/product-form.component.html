@@ -1,1 +1,13 @@
 <p>product-form works!</p>
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+
+<input type="text" name="name" formControlName="Name">
+<input type="number" name="price" formControlName="price"> 
+<input type="text" name="imgUrl" formControlName="imgUrl">
+<input type="text" name="categories" formControlName="categories">
+<input type="text" name="description" formControlName="description">
+<input type="number" name="stock" formControlName="stock">
+<input type="number" name="maxStock" formControlName="maxStock">
+<input type="text" name="stockShippingStatus" formControlName="stockShippingStatus">
+<button type="submit">Add new Product</button>
+</form>
