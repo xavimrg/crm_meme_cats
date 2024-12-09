@@ -1,18 +1,23 @@
 <p>product-detail works!</p>
 
 <mat-card>
+@if(product){
+  <img [src]="product.imageUrl" alt=""> 
+  <mat-card-title>{{ product.name }}</mat-card-title>
+  <mat-card-content>
+    <p><strong>{{ 'CATEGORIES'  }}:</strong> {{ product.categories }}</p>
+    <p><strong>{{ 'DESCRIPTION' }}:</strong> {{ product.description }}</p>
+    <p><strong>{{ 'PRICE'  }}:</strong> {{ product.price }} €</p>
+    <p><strong>{{ 'STOCK' }}:</strong> {{ product.stock }}</p>
+    <button mat-raised-button color="primary" (click)="editMode = true">{{ 'Edit' }}</button>
+<button mat-raised-button color="warn" (click)="deteleProduct()">{{ 'Delete' }}</button> 
 
-    <img [src]="product.imageUrl" alt=""> 
-      <mat-card-title>{{ product.name }}</mat-card-title>
-      <mat-card-content>
-        <p><strong>{{ 'CATEGORIES'  }}:</strong> {{ product.categories }}</p>
-        <p><strong>{{ 'DESCRIPTION' }}:</strong> {{ product.description }}</p>
-        <p><strong>{{ 'PRICE'  }}:</strong> {{ product.price }} €</p>
-        <p><strong>{{ 'STOCK' }}:</strong> {{ product.stock }}</p>
-        <button mat-raised-button color="primary" (click)="editMode = true">{{ 'Edit' }}</button>
-   <button mat-raised-button color="warn" (click)="deteleProduct()">{{ 'Delete' }}</button> 
+  </mat-card-content>
+} @else {
+  <p>{{ 'Loading product details...' }}</p>
+}
 
-      </mat-card-content>
+
     
   </mat-card> 
 <!--   
