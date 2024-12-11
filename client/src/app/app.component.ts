@@ -1,10 +1,12 @@
 import { Component, inject } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService} from '@ngx-translate/core'
 
 @Component({
   selector: 'app-root',
-  imports: [ TranslateModule, RouterOutlet],
+  imports: [ TranslateModule, RouterOutlet, MatInputModule, MatFormFieldModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

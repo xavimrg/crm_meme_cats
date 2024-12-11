@@ -16,8 +16,8 @@ getAllProducts(): Observable<Product[]>  {
   return this.http.get<Product[]>(this.url);
 }
 
-getProducByid(id:number): Observable<Product> {
-return this.http.get<Product>(`${this.url}`);
+getProductById(id:number): Observable<Product> {
+return this.http.get<Product>(`${this.url}/${id}`);
 }
 
 createProduct(product: Product): Observable<Product>{

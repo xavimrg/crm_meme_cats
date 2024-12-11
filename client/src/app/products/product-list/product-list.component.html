@@ -1,19 +1,29 @@
-product List works!
-<ul>
-
-    @for( product of products; track product.id){
+{{ 'PRODUCTS'  }}
+<mat-card>
+    <ul>
+        @if ( products.length > 0){
+        @for ( product of products; track product.id){
         <li>
-            <mat-card>
+            <mat-card> <a [routerLink]="['/product', product.id]">
 
-        <img mat-card-image [src]="product.imageUrl">
-        <mat-card-title>{{product.name}}</mat-card-title>
-        <mat-card-subtitle>{{ 'CATEGORIES'  }} {{product.categories}}</mat-card-subtitle>
-        <mat-card-content>{{ 'DESCRIPTION' }} {{product.description}}</mat-card-content>
-        <mat-card-subtitle>{{ 'PRICE' }} {{product.price}} €</mat-card-subtitle>
+
+                    <img mat-card-image [src]="product.imageUrl">
+                    <mat-card-title>{{product.name}}</mat-card-title>
+                    <mat-card-subtitle>{{ 'CATEGORIES' }} : {{product.categories}}</mat-card-subtitle>
+                    <mat-card-content>{{ 'DESCRIPTION' }} : {{product.description}}</mat-card-content>
+                    <mat-card-subtitle>{{ 'PRICE'  }} : {{product.price}} € </mat-card-subtitle>
+                    <mat-card>{{ 'STOCK'  }} : {{product.stock}}</mat-card>
+
+                </a>
+
             </mat-card>
-        </li>  
+        </li>
+         } @empty {
+        <li>{{ 'No products available'  }}</li>
+        }
+        }@else { <p> {{'Loading products...'  }} </p>}
+ 
 
-    
-}
+    </ul>
 
-</ul>
+</mat-card> 
