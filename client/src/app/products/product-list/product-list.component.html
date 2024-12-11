@@ -1,0 +1,19 @@
+product List works!
+<ul>
+
+    @for( product of products; track product.id){
+        <li>
+            <mat-card>
+
+        <img mat-card-image [src]="product.imageUrl">
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{ 'CATEGORIES'  }} {{product.categories}}</mat-card-subtitle>
+        <mat-card-content>{{ 'DESCRIPTION' }} {{product.description}}</mat-card-content>
+        <mat-card-subtitle>{{ 'PRICE' }} {{product.price}} €</mat-card-subtitle>
+            </mat-card>
+        </li>  
+
+    
+}
+
+</ul>
