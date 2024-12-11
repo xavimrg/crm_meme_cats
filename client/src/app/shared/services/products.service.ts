@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Product } from '../interfaces/product';
-import { Observable, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,16 +21,21 @@ products = signal<Product[]>([]);
 productAdded = new Subject<string>();
 
 
-getAllProducts(){
+getAllProducts():Observable<Product[]>{
   return this.hhtp.get<Product[]>(this.Url) // al servicio http funcion get valor [] de products a traves de la URL
-   .subscribe(products=>this.products.set(products)) // me suscribo al signal products LO PASO AL REFRESH
+  // me suscribo al signal products LO PASO AL REFRESH
 }
 
-addProduct(product: Product){ // le pasamos a la funcion un product con la estructura del Interfaz Product
-  return this.hhtp.post<Product>(this.Url, product) // devuelvo el serv. hhtp. con el metodo post <Product> (a esta url y le paso el product concreto)
-.subscribe(()=> {this.getAllProducts();// actualiza de nuevo los productos
-})
+addProduct(newProduct: Product): Observable<Product> {
+  // Generar un nuevo ID basado en el ID más alto existente
+  const newPId = Math.max(...this.products().map(product => product.id || 0), 0) + 1;
+  newProduct.id = newPId;
+
+  // Enviar el producto al servidor
+  return this.hhtp.post<Product>(this.Url, newProduct);
 }
+
+
 
 getProductById(id: number){ // le pasamos el ID
 return this.hhtp.get<Product>(`${this.Url}/${id}`) // = pero añado el ID 
