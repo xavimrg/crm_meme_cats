@@ -39,7 +39,7 @@ if (confirmDelete && this.product.id) {
   this.productService.deleteProduct(this.product.id).subscribe({
     next: () => {
       alert('El producto se ha eliminado correctamente.');
-      this.router.navigate(['/products']); 
+      this.router.navigate(['/product']); 
     },
     error: (err) => {
       console.error('Fail to delete the product.', err);

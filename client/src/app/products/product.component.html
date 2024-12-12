@@ -1,3 +1,4 @@
 <p>product works!</p>
-<app-product-list [products]="products"></app-product-list>
-<app-product-form></app-product-form> 
+<app-product-list [products]="products()"></app-product-list>
+<!-- <app-product-form (sentProductForm)="addProduct($event)"></app-product-form>  -->
+<app-product-form [productForm]="productForm" (sentForm)="onSubmit($event)"></app-product-form>
