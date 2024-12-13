@@ -1,4 +1,18 @@
-<p>product works!</p>
-<app-product-list [products]="products()"></app-product-list>
-<!-- <app-product-form (sentProductForm)="addProduct($event)"></app-product-form>  -->
-<app-product-form [productForm]="productForm" (sentForm)="onSubmit($event)"></app-product-form>
+
+<SECTION class="product-container">
+<mat-button-toggle-group #toggleGroup="matButtonToggleGroup">
+  <mat-button-toggle value="open">Add New Product</mat-button-toggle>
+  <mat-button-toggle value="close">Product List</mat-button-toggle>
+</mat-button-toggle-group>
+
+@if(toggleGroup.value !== "open"){
+  <app-product-list [products]="products()"></app-product-list>
+} @else {
+  <app-product-form [productForm]="productForm" (sentForm)="onSubmit($event)"></app-product-form>}
+
+</SECTION>
+
+
+
+
+

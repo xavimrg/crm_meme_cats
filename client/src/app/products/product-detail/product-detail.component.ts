@@ -71,7 +71,6 @@ this.productService.updateProduct(updatedProduct).subscribe({
   alert('Product not updated.'); 
  }})
 }
-
 }
 
 
@@ -92,5 +91,9 @@ if (confirmDelete && this.product.id) {
   });
 }
 }
-  
+ 
+goBackToProducts() {
+  this.router.navigate(['/product']);
+}
+
 }

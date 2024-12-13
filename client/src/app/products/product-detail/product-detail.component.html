@@ -1,65 +1,64 @@
 <p>product-detail works!</p>
 
 <mat-card>
-    @if(product){
-      <img [src]="product.imageUrl" alt="{{product.name}}"> 
-      <mat-card-title>{{ product.name }}</mat-card-title>
-      <mat-card-content>
-        @if(!editMode){        
-        <p><strong>{{ 'CATEGORIES'  }}:</strong> {{ product.categories }}</p>
-        <p><strong>{{ 'DESCRIPTION' }}:</strong> {{ product.description }}</p>
-        <p><strong>{{ 'PRICE'  }}:</strong> {{ product.price }} €</p>
-        <p><strong>{{ 'STOCK' }}:</strong> {{ product.stock }}</p>
-        <button mat-raised-button color="primary" (click)="editMode = true">{{ 'Edit' }}</button> 
-    <button mat-raised-button color="warn" (click)="deleteProduct()">{{ 'Delete' }}</button> 
+  @if(product){
+  <img [src]="product.imageUrl" alt="{{product.name}}">
+  <mat-card-title>{{ product.name }}</mat-card-title>
+  <mat-card-content>
+    @if(!editMode){
+    <p><strong>{{ 'CATEGORIES' }}:</strong> {{ product.categories }}</p>
+    <p><strong>{{ 'DESCRIPTION' }}:</strong> {{ product.description }}</p>
+    <p><strong>{{ 'PRICE' }}:</strong> {{ product.price }} €</p>
+    <p><strong>{{ 'STOCK' }}:</strong> {{ product.stock }}</p>
+    <button mat-raised-button color="primary" (click)="editMode = true">{{ 'Edit' }}</button>
+    <button mat-raised-button color="warn" (click)="deleteProduct()">{{ 'Delete' }}</button>
+    <button mat-raised-button color="primary" (click)="goBackToProducts()">GO BACK</button>
 
-    
-  
-    } @else { 
 
-      <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>{{ 'Name' }}</mat-label>
-          <input matInput id="name" type="text" formControlName="name" placeholder="Name">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>{{ 'Image URL' }}</mat-label>
-          <input matInput id="imageUrl" type="text" formControlName="imageUrl" placeholder="Image URL">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>{{ 'Price' }}</mat-label>
-          <input matInput id="price" type="number" formControlName="price" placeholder="Price">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>{{ 'Description' }}</mat-label>
-          <textarea matInput id="description" formControlName="description" placeholder="Description"></textarea>
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>{{ 'Stock' }}</mat-label>
-          <input matInput id="stock" type="number" formControlName="stock" placeholder="Stock">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>{{ 'Maximum Stock' }}</mat-label>
-          <input matInput id="maxStock" type="number" formControlName="maxStock" placeholder="Maximum Stock">
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>{{ 'Stock Shipping Status' }}</mat-label>
-          <input matInput id="stockShippingStatus" type="text" formControlName="stockShippingStatus" placeholder="Stock Shipping Status">
-        </mat-form-field>
-        <div class="button-group">
-          <button mat-raised-button color="primary" type="submit">{{ 'Save' }}</button>
-          <button mat-raised-button color="warn" type="button" (click)="editMode = false">
-            {{ 'Cancel' }}
-          </button>
-        </div>
-      </form>
+    } @else {
+
+    <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ 'Name' }}</mat-label>
+        <input matInput id="name" type="text" formControlName="name" placeholder="Name">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ 'Image URL' }}</mat-label>
+        <input matInput id="imageUrl" type="text" formControlName="imageUrl" placeholder="Image URL">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ 'Price' }}</mat-label>
+        <input matInput id="price" type="number" formControlName="price" placeholder="Price">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ 'Description' }}</mat-label>
+        <textarea matInput id="description" formControlName="description" placeholder="Description"></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ 'Stock' }}</mat-label>
+        <input matInput id="stock" type="number" formControlName="stock" placeholder="Stock">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ 'Maximum Stock' }}</mat-label>
+        <input matInput id="maxStock" type="number" formControlName="maxStock" placeholder="Maximum Stock">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ 'Stock Shipping Status' }}</mat-label>
+        <input matInput id="stockShippingStatus" type="text" formControlName="stockShippingStatus"
+          placeholder="Stock Shipping Status">
+      </mat-form-field>
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit">{{ 'Save' }}</button>
+        <button mat-raised-button color="warn" type="button" (click)="editMode = false"> {{ 'Cancel' }} </button>
+      </div>
+    </form>
     }
   </mat-card-content>
 
-} @else {
-      <p>{{ 'Loading product details...' }}</p>
-    }
-    
-    
-        
-      </mat-card> 
+  } @else {
+  <p>{{ 'Loading product details...' }}</p>
+  }
+
+
+
+</mat-card>

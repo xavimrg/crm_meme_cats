@@ -4,10 +4,11 @@ import { ProductsService } from '../shared/services/products.service';
 import { Product } from '../shared/interfaces/product';
 import { ProductFormComponent } from "./product-form/product-form.component";
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-product',
-  imports: [ProductListComponent, ProductFormComponent],
+  imports: [ProductListComponent, ProductFormComponent,  MatButtonToggleModule],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
@@ -20,6 +21,7 @@ export class ProductComponent implements OnInit {
 
   productForm!: FormGroup;
   isFormVisible: boolean = false;
+toggleGroup: any;
 
 
 
@@ -51,13 +53,10 @@ this.productService.getAllProducts().subscribe( // subscribe -> signal
 onSubmit(product: Product): void{
 this.productService.createProduct(product).subscribe((newProduct) => { // crea el nuevo producto y lo manda pero se suscribe a los signals
   this.products.set([...this.products(), newProduct]); // products() es el get de signals - no un metodo
-  this.toggleForm(); // oculta el formulario al enviar el nuevo producto
 });}
 
 
-toggleForm(): void {
-this.isFormVisible = !this.isFormVisible
-}
+
 
 }
 
