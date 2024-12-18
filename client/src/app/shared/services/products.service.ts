@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../interfaces/product';
 
@@ -31,6 +31,9 @@ updateProduct(product: Product):Observable<Product>{
 deleteProduct(id: number): Observable<void>{
   return this.http.delete<void>(`${this.url}/${id}`)
 }
+ // Search Component
 
-
+ products = signal<Product[]>([])
+ product = signal<Product | null>(null)
+searchProduct = signal('')
 }
