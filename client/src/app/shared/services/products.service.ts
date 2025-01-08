@@ -33,7 +33,7 @@ deleteProduct(id: number): Observable<void>{
 }
  // Search Component
 
- products = signal<Product[]>([])
- product = signal<Product | null>(null)
+products = signal<Product[]>([])
+product = signal<Product | null>(null)
 searchProduct = signal('')
 }
